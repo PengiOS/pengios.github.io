@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Website Title</title>
+  <style>
+    body {
+      background-image: url('background.png');
+      background-size: cover;
+      background-position: center;
+      margin: 0;
+    }
+
+    .logo {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 100px;
+    }
+
+    .search-box {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    .search-button {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+    }
+
+    .search-icon {
+      width: 20px;
+      height: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <img src="logo.png" alt="Your Website Logo" class="logo">
+
+  <div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+    <form action="https://www.google.com/search" method="get" target="_blank">
+      <input type="text" name="q" placeholder="Search..." class="search-box">
+      <button type="submit" class="search-button">
+        <img src="icon.png" alt="Search Icon" class="search-icon">
+      </button>
+    </form>
+  </div>
+
+</body>
+</html>
