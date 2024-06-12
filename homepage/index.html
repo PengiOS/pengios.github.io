@@ -7,10 +7,12 @@
   <title>PengiOS Search</title>
   <style>
     body {
-      background-image: url('background.png');
-      background-size: cover;
-      background-position: center;
+      background-image: url('background.png');  /* Assuming 'background.png' exists */
+      background-repeat: no-repeat;  /* Prevent repeating image */
+      background-size: cover;  /* Resize to fit container */
+      background-position: center;  /* Center the image */
       margin: 0;
+      height: 100vh;  /* Set body height for full viewport */
     }
 
     .logo {
@@ -35,8 +37,9 @@
     }
 
     .search-icon {
-      width: 20px;
-      height: 20px;
+      width: 30px;  /* Increase icon width */
+      height: 30px;  /* Increase icon height */
+      vertical-align: middle;  /* Vertically center icon */
     }
 
     /* Center the search box horizontally */
