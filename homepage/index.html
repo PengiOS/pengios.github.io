@@ -17,7 +17,7 @@
       position: absolute;
       top: 20px;
       left: 20px;
-      width: 100px;
+      width: 100px; /* Adjust width as needed */
     }
 
     .search-box {
@@ -25,6 +25,7 @@
       border: 1px solid #ccc;
       border-radius: 5px;
       font-size: 16px;
+      margin-top: 50px; /* Add space below the logo */
     }
 
     .search-button {
@@ -37,12 +38,21 @@
       width: 20px;
       height: 20px;
     }
+
+    /* Center the search box horizontally */
+    .search-container {
+      display: flex;
+      justify-content: center;
+    }
   </style>
 </head>
 <body>
 
-  <div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
-    <form action="https://www.google.com/search" method="get">  <input type="text" name="q" placeholder="Search..." class="search-box">
+  <img src="logo.png" alt="PengiOS Search Logo" class="logo">
+
+  <div class="search-container">
+    <form action="https://www.google.com/search" method="get">
+      <input type="text" name="q" placeholder="Search..." class="search-box">
       <button type="submit" class="search-button">
         <img src="search.png" alt="Search Icon" class="search-icon">
       </button>
