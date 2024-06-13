@@ -4,13 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Website</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap">
     <style>
         body {
-            background-image: url('background.png');
+            background-image: url('background.png'); /* Adjust path to your image */
             background-size: cover;
             margin: 0;
             padding: 0;
-            font-family: sans-serif;
+            font-family: "Open Sans", sans-serif;
+            color: white; /* White text to match background */
         }
 
         .header {
@@ -18,7 +20,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 10px 20px;
-            background-color: #f0f0f0;
+            background-color: rgba(0, 0, 0, 0.5); /* Black with 0.5 opacity (background for header) */
         }
 
         .logo {
@@ -49,12 +51,13 @@
             border: 1px solid #ccc;
             border-radius: 5px;
             font-size: 16px;
+            color: black; /* Text color for search bar (optional) */
         }
 
         .search-button {
             width: 30px;
             height: 30px;
-            background-image: url('search.png');
+            background-image: url('search.png'); /* Adjust path to your button image */
             background-size: cover;
             border: none;
             cursor: pointer;
