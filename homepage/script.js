@@ -16,7 +16,7 @@ function updateTime() {
   } else if (hours >= 12 && hours < 18) {
     greetingText = 'Good afternoon';
   } else {
-    greetingText = 'Good night';
+    greetingText = 'Goodnight';
   }
   greeting.textContent = greetingText;
 }
