@@ -12,10 +12,19 @@ document.addEventListener('DOMContentLoaded', () => {  // ensure all the DOM con
     clock.textContent = `${hours}:${minutes}`;
   
     let greetingText;
-    if (hours >= 3 && hours < 12) {
+      
+    if (hours >= 0 && hours < 3) {
+      greetingText = 'Sleep well';
+    } else if (hours >= 3 && hours < 7) {
+      greetingText = 'Rise and shine';
+    } else if (hours >= 7 && hours < 10) {
       greetingText = 'Good morning';
-    } else if (hours >= 12 && hours < 18) {
+    } else if (hours >= 10 && hours < 14) {
+      greetingText = 'Hello';
+    } else if (hours >= 14 && hours < 18) {
       greetingText = 'Good afternoon';
+    } else if (hours >= 18 && hours < 22) {
+      greetingText = 'Good evening';
     } else {
       greetingText = 'Goodnight';
     }
