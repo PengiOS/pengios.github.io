@@ -58,7 +58,9 @@ body {
 
 .search-engine option {
   text-align: center;
-  padding: 5px 10px;
+  padding: 20px 20px;
+  width: fit-content;
+  height: fit-content;
 }
 
 .search-engine option[value="google"] {
