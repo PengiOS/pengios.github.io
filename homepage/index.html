@@ -1,44 +1,23 @@
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="theme-color" content="#3498db">
-    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-    <link rel="manifest" href="/pwa.json">
-    <link rel="shortcut icon" href="/icons/128.png">
-    <title>New Tab</title>
-    <script src="theme.js"></script>
-    <script defer="defer" src="/polyfills.9932af86c9bb.js"></script>
-    <script defer="defer" src="/main.f0c89beb4103.js"></script>
-    <link href="/main.6425a31c96f7.css" rel="stylesheet">
-  </head>
-  <body data-new-gr-c-s-check-loaded="14.1180.0" data-gr-ext-installed="">
-    <div id="root">
-    <div class="Dashboard fullscreen dark">
-    <div class="Background">
-    <div class="fullscreen" style="opacity: 1; transition: opacity 150ms ease-in-out 0s;">
-    <div class="Image fullscreen" style="background-image: url(&quot;blob:https://web.tabliss.io/08437655-316b-4aed-826d-dd75745997cf&quot;); opacity: 0.8;">
-    </div>
-    </div>
-    </div>
-    <div class="Widgets fullscreen">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penguins</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="icon.png"> </head>
+<body>
     <div class="container">
-    <div class="Slot middleCentre">
-    <div class="Widget " style="font-size: 24px;">
-    <div class="Time">
-    <div class="Time Digital">
-    <h1>17:42</h1>
+        <img src="penguin.jpg" alt="Emperor penguins standing in the snow">
+        <div class="text-overlay">
+            <h1>Hello, Insert name</h1>
+            <p id="current-datetime"></p>
+            <form id="search-form">
+                <input type="text" id="search-bar" name="searchQuery" placeholder="Type to search">
+                <button type="button">Search</button>
+            </form>
+        </div>
     </div>
-    </div>
-    </div>
-    <div class="Widget " style="font-size: 24px;">
-    <div class="Greeting">
-    <h2>Good afternoon</h2>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-  </body>
+    <script src="script.js"></script>
+</body>
 </html>
