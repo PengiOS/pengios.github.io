@@ -3,101 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PengiOS Search</title>
+    <link rel="shortcut icon" href="./assets/icon.png">
+    <title>PengiOS Search - New Tab</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap">
-    <style>
-        body {
-            background-image: url('background.png'); /* Adjust path to your image */
-            background-size: cover;
-            margin: 0;
-            padding: 0;
-            font-family: "Open Sans", sans-serif;
-            color: white; /* White text to match background */
-        }
-
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 20px;
-            background-color: rgba(0, 0, 0, 0.5); /* Black with 0.5 opacity (background for header) */
-        }
-
-        .logo {
-            width: 100px;
-        }
-
-        .clock {
-            font-size: 24px;
-        }
-
-        .greeting {
-            font-size: 36px;
-            margin-top: 30%;
-            text-align: center;
-        }
-
-        .search {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 20px;
-        }
-
-        .search-bar {
-            width: 300px;
-            height: 30px;
-            padding: 5px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 16px;
-            color: black; /* Text color for search bar (optional) */
-        }
-    </style>
+    <link rel="stylesheet" href="./css/main.css">
+    <script src="./js/index.js"></script>
 </head>
 <body>
     <header class="header">
-        <img class="logo" src="logo.png" alt="Logo">
+        <img class="logo" src="./assets/logo.png" alt="Logo">
         <div class="clock" id="clock"></div>
     </header>
     <div class="greeting" id="greeting"></div>
     <div class="search">
         <input type="text" class="search-bar" id="search-bar" placeholder="Type to search">
     </div>
-    <script>
-        const greeting = document.getElementById('greeting');
-        const clock = document.getElementById('clock');
-        const searchBar = document.getElementById('search-bar');
-        const searchButton = document.getElementById('search-button');
-
-        function updateTime() {
-            const date = new Date();
-            const hours = date.getHours();
-            const minutes = date.getMinutes().toString().padStart(2, '0');
-
-            clock.textContent = `${hours}:${minutes}`;
-
-            let greetingText;
-            if (hours >= 3 && hours < 12) {
-                greetingText = 'Good morning';
-            } else if (hours >= 12 && hours < 18) {
-                greetingText = 'Good afternoon';
-            } else {
-                greetingText = 'Good night';
-            }
-            greeting.textContent = greetingText;
-        }
-
-        function handleSearch() {
-            const searchTerm = searchBar.value;
-            if (searchTerm) {
-                window.location.href = `https://www.google.com/search?q=${searchTerm}`;
-            }
-        }
-
-        searchButton.addEventListener('click', handleSearch);
-        setInterval(updateTime, 1000);
-        updateTime();
-    </script>
 </body>
 </html>

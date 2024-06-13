@@ -1,0 +1,47 @@
+body {
+    background-image: url('../assets/background.png');
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    font-family: "Open Sans", sans-serif;
+    color: white; /* White text to match background */
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: rgba(0, 0, 0, 0.5); /* Black with 0.5 opacity (background for header) */
+}
+
+.logo {
+    width: 100px;
+}
+
+.clock {
+    font-size: 24px;
+}
+
+.greeting {
+    font-size: 36px;
+    margin-top: 30%;
+    text-align: center;
+}
+
+.search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.search-bar {
+    width: 300px;
+    height: 30px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    color: black; /* Text color for search bar */
+}
