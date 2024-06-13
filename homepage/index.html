@@ -1,26 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="./assets/icon.png">
-    <title>PengiOS Search - New Tab</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap">
-    <link rel="stylesheet" href="./css/main.css">
-    <script src="./js/index.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PengiOS Search</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header class="header">
-        <img class="logo" src="./assets/logo.png" alt="Logo">
-        <div class="clock" id="clock"></div>
-    </header>
-    <div class="greeting" id="greeting"></div>
-    <div class="search">
-        <input type="text" class="search-bar" id="search-bar" placeholder="Type to search" onkeypress="if (event.keyCode == 13)
-                        document.getElementById('search-button').click()">
-        <button class="search-button" id="search-button">
-          <img src="./assets/search.png" alt="Search">
-        </button>
-    </div>
+  <header class="header">
+    <img class="logo" src="logo.png" alt="Logo">
+    <div class="clock" id="clock"></div>
+  </header>
+  <div class="greeting" id="greeting"></div>
+  <div class="search">
+    <select class="search-engine" id="search-engine">
+      <option value="google">Google</option>
+      <option value="bing">Bing</option>
+      <option value="duckduckgo">DuckDuckGo</option>
+      <option value="yahoo">Yahoo!</option>
+    </select>
+    <input type="text" class="search-bar" id="search-bar" placeholder="Type to search">
+  </div>
+  <script src="script.js"></script>
 </body>
 </html>
