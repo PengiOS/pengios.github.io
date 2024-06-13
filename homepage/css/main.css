@@ -101,3 +101,12 @@ body {
   height: 30px;
   width: 30px;
 }
+
+@font-face {
+  font-family: 'Orkney';
+  src: local('Canva Sans'), local('Canva-Sans'),
+      url('./fonts/Canva Sans/CanvaSans-Regular.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
