@@ -16,7 +16,8 @@
     </header>
     <div class="greeting" id="greeting"></div>
     <div class="search">
-        <input type="text" class="search-bar" id="search-bar" placeholder="Type to search">
+        <input type="text" class="search-bar" id="search-bar" placeholder="Type to search" onkeypress="if (event.keyCode == 13)
+                        document.getElementById('search-button').click()">
         <button class="search-button" id="search-button">
           <img src="./assets/search.png" alt="Search">
         </button>
