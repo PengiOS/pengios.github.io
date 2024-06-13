@@ -3,19 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PengiOS Search</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="icon.png"> </head>
+    <title>My Website</title>
+    <style>
+        body {
+            background-image: url('background.png');
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #f0f0f0;
+        }
+
+        .logo {
+            width: 100px;
+        }
+
+        .clock {
+            font-size: 24px;
+        }
+
+        .greeting {
+            font-size: 36px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .search {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .search-bar {
+            width: 300px;
+            height: 30px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .search-button {
+            width: 30px;
+            height: 30px;
+            background-image: url('search.png');
+            background-size: cover;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
 <body>
-    <div class="container">
-        <div class="text-overlay">
-            <h1>Hello</h1>
-            <p id="current-datetime"></p>
-            <form id="search-form">
-                <input type="text" id="search-bar" name="searchQuery" placeholder="Type to search">
-            </form>
-        </div>
+    <header class="header">
+        <img class="logo" src="logo.png" alt="Logo">
+        <div class="clock" id="clock"></div>
+    </header>
+    <div class="greeting" id="greeting"></div>
+    <div class="search">
+        <input type="text" class="search-bar" id="search-bar" placeholder="Type to search">
+        <button class="search-button" id="search-button"></button>
     </div>
-    <script src="script.js"></script>
+    <script>
+        const greeting = document.getElementById('greeting');
+        const clock = document.getElementById('clock');
+        const searchBar = document.getElementById('search-bar');
+        const searchButton = document.getElementById('search-button');
+
+        function updateTime() {
+            const date = new Date();
+            const hours = date.getHours();
+            const minutes = date.getMinutes().toString().padStart(2, '0');
+
+            clock.textContent = `${hours}:${minutes}`;
+
+            let greetingText;
+            if (hours >= 3 && hours < 12) {
+                greetingText = 'Good morning';
+            } else if (hours >= 12 && hours < 18) {
+                greetingText = 'Good afternoon';
+            } else {
+                greetingText = 'Good night';
+            }
+            greeting.textContent = greetingText;
+        }
+
+        function handleSearch() {
+            const searchTerm = searchBar.value;
+            if (searchTerm) {
+                window.location.href = `https://www.google.com/search?q=${searchTerm}`;
+            }
+        }
+
+        searchButton.addEventListener('click', handleSearch);
+        setInterval(updateTime, 1000);
+        updateTime();
+    </script>
 </body>
 </html>
