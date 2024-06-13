@@ -1,49 +1,92 @@
 body {
-    background-image: url('../assets/background.png');
-    background-size: cover;
-    margin: 0;
-    padding: 0;
-    font-family: "Open Sans", sans-serif;
-    color: white; /* White text to match background */
+  background-image: url('../assets/background.png'); /* Adjust path to your image */
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+  font-family: "Open Sans", sans-serif;
+  color: white; /* White text to match background */
 }
 
 .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background-color: rgba(0, 0, 0, 0.5); /* Black with 0.5 opacity (background for header) */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: rgba(0, 0, 0, 0.5); /* Black with 0.5 opacity (background for header) */
 }
 
 .logo {
-    width: 100px;
+  width: 100px;
 }
 
 .clock {
-    font-size: 24px;
+  font-size: 24px;
 }
 
 .greeting {
-    font-size: 36px;
-    margin-top: 30%;
-    text-align: center;
+  font-size: 36px;
+  margin-top: 30%;
+  text-align: center;
 }
 
 .search {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
 }
 
 .search-bar {
-    width: 300px;
-    height: 30px;
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-    color: black; /* Text color for search bar */
+  width: 200px;
+  height: 30px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  color: black; /* Text color for search bar (optional) */
+}
+
+.search-engine {
+  margin-right: 10px;
+  height: 40px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  color: black;
+}
+
+.search-engine option {
+  text-align: center;
+  padding: 5px 10px;
+}
+
+.search-engine option[value="google"] {
+  background-image: url('../assets/google.png'); /* Adjust path to Google logo */
+  background-repeat: no-repeat;
+  background-position: left center;
+  padding-left: 25px;
+}
+
+.search-engine option[value="bing"] {
+  background-image: url('../assets/bing.png'); /* Adjust path to Bing logo */
+  background-repeat: no-repeat;
+  background-position: left center;
+  padding-left: 25px;
+}
+
+.search-engine option[value="duckduckgo"] {
+  background-image: url('../assets/duckduckgo.png'); /* Adjust path to DuckDuckGo logo */
+  background-repeat: no-repeat;
+  background-position: left center;
+  padding-left: 25px;
+}
+
+.search-engine option[value="yahoo"] {
+  background-image: url('../assets/yahoo.png'); /* Adjust path to Yahoo! logo */
+  background-repeat: no-repeat;
+  background-position: left center;
+  padding-left: 25px;
 }
 
 .search-button {
