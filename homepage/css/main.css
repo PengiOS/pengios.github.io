@@ -64,28 +64,28 @@ body {
 }
 
 .search-engine option[value="google"] {
-  background-image: url('../assets/google.png'); /* Adjust path to Google logo */
+  background-image: url('./assets/google.png'); /* Adjust path to Google logo */
   background-repeat: no-repeat;
   background-position: left center;
   padding-left: 25px;
 }
 
 .search-engine option[value="bing"] {
-  background-image: url('../assets/bing.png'); /* Adjust path to Bing logo */
+  background-image: url('./assets/bing.png'); /* Adjust path to Bing logo */
   background-repeat: no-repeat;
   background-position: left center;
   padding-left: 25px;
 }
 
 .search-engine option[value="duckduckgo"] {
-  background-image: url('../assets/duckduckgo.png'); /* Adjust path to DuckDuckGo logo */
+  background-image: url('./assets/duckduckgo.png'); /* Adjust path to DuckDuckGo logo */
   background-repeat: no-repeat;
   background-position: left center;
   padding-left: 25px;
 }
 
 .search-engine option[value="yahoo"] {
-  background-image: url('../assets/yahoo.png'); /* Adjust path to Yahoo! logo */
+  background-image: url('./assets/yahoo.png'); /* Adjust path to Yahoo! logo */
   background-repeat: no-repeat;
   background-position: left center;
   padding-left: 25px;
