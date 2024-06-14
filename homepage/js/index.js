@@ -3,13 +3,14 @@ document.addEventListener('DOMContentLoaded', () => {  // ensure all the DOM con
   const clock = document.getElementById('clock');
   const searchBar = document.getElementById('search-bar');
   const searchEngine = document.getElementById('search-engine');
+  const searchButton = document.getElementById('search-button');
   
   function updateTime() {
     const date = new Date();
     const hours = date.getHours();
     const minutes = date.getMinutes().toString().padStart(2, '0');
   
-    clock.textContent = `${hours}:${minutes}`;
+    clock.innerHTML.textContent = `${hours}:${minutes}`;
   
     let greetingText;
       
@@ -70,6 +71,8 @@ document.addEventListener('DOMContentLoaded', () => {  // ensure all the DOM con
       handleSearch();
     }
   });
+    
+  searchButton.addEventListener('click', handleSearch);
 
   // Update time every tenth of a second
   updateTime();
