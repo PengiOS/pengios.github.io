@@ -61,11 +61,6 @@ document.addEventListener('DOMContentLoaded', () => {  // ensure all the DOM con
       }
     }
   }
-
-  var now = new Date();
-  var datetime = now.toLocaleString();
-
-  document.getElementById("datetime").innerHTML = datetime;
   
   searchEngine.addEventListener('change', () => {
     // Update UI based on selected engine (optional)

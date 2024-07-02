@@ -103,11 +103,6 @@ body {
   width: 30px;
 }
 
-.time{
-  text-align: right;
-  cursor: pointer;
-}
-
 @font-face {
   font-family: 'Orkney';
   src: local('Canva Sans'), local('Canva-Sans'),
