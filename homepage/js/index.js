@@ -21,12 +21,28 @@ document.addEventListener('DOMContentLoaded', () => {  // ensure all the DOM con
       greetingText = 'Good afternoon';
     } else if (hours >= 18 && hours < 22) {
       greetingText = 'Good evening';
-    } else if (hours >= 23) {
+    } else if (hours >= 22) {
       greetingText = 'Goodnight';
     } else {
       greetingText = 'Hello'
     }
     greeting.textContent = greetingText;
+  }
+
+  function updateWeather() {
+    fetch('https://api.open-meteo.com/v1/forecast?latitude=-33.8678&longitude=151.2073&current=temperature_2m,apparent_temperature,is_day,precipitation&daily=temperature_2m_max,temperature_2m_min,sunrise,sunset,daylight_duration&timezone=auto')
+      .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response error');  
+        }
+        return response.json();
+     })
+      .then(data => {
+        console.log(data);
+    })
+    .catch(error => {
+        console.error('Error fetching weather from API:', error);
+    });
   }
   
   function handleSearch() {
@@ -73,7 +89,10 @@ document.addEventListener('DOMContentLoaded', () => {  // ensure all the DOM con
 
   searchButton.addEventListener('click', handleSearch);
 
-  // Update time every tenth of a second
   updateTime();
-  setInterval(updateTime, 100);
+  updateWeather();
+
+  // Set detail update intervals
+  setInterval(updateTime, 100);  // 0.1 sec
+  setInterval(updateWeather, 60000);  // 1 min
 });
