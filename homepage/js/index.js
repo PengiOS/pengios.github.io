@@ -8,11 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {  // ensure all the DOM con
   function updateTime() {
     const date = new Date();
     const hours = date.getHours();
-    const minutes = date.getMinutes().toString().padStart(2, '0');
-  
-    clock.innerHTML.textContent = `${hours}:${minutes}`;
-  
-    let greetingText;
       
     if (hours >= 0 && hours < 3) {
       greetingText = 'Sleep well';
@@ -26,8 +21,10 @@ document.addEventListener('DOMContentLoaded', () => {  // ensure all the DOM con
       greetingText = 'Good afternoon';
     } else if (hours >= 18 && hours < 22) {
       greetingText = 'Good evening';
-    } else {
+    } else if (hours >= 23) {
       greetingText = 'Goodnight';
+    } else {
+      greetingText = 'Hello'
     }
     greeting.textContent = greetingText;
   }
@@ -72,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {  // ensure all the DOM con
     }
   });
   
-  currentTime();
+  updateTime();
 
   searchButton.addEventListener('click', handleSearch);
 
