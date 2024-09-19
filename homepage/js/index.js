@@ -4,10 +4,12 @@ document.addEventListener('DOMContentLoaded', () => {  // ensure all the DOM con
   const clock = document.getElementById('clock');
   const searchBar = document.getElementById('search-bar');
   const searchEngine = document.getElementById('search-engine');
+  const searchHint = document.getElementById('search-hint');
   const searchButton = document.getElementById('search-button');
   const weatherSummary = document.getElementById('weather-summary')
   const weatherDiv = document.getElementById('weather')
   var weatherDetailsShown = false;
+  var weatherData;
   
   var weatherDetails1;
   var weatherDetails2;
@@ -55,15 +57,16 @@ document.addEventListener('DOMContentLoaded', () => {  // ensure all the DOM con
 
   async function updateWeather() {
     try {
-      var weatherData = await getWeather();
+      weatherData = await getWeather();
       console.log(weatherData);
-      weatherSummary.textContent = "sunny or sht";
+      weatherSummary.textContent = `${weatherData.current.temperature_2m}${weatherData.current_units.temperature_2m}`;  // TODO: location and relevant icon before temp
       if (weatherDetailsShown) {
-        weatherDetails1.textContent = "Feels like hell"
-        weatherDetails2.textContent = "150% precipitation"
-        weatherDetails3.textContent = "Min: brrr, Max: ouch"
-        weatherDetails4.textContent = "Sunrise: idk, Sunset: idk (12:01 of daylight)"
-        // these are placeholders for obvious reasons
+        weatherDetails1.textContent = `Feels like ${weatherData.current.apparent_temperature}${weatherData.current_units.apparent_temperature}`;
+        weatherDetails2.textContent = `${weatherData.daily.precipitation_probability_max[0]}${weatherData.daily_units.precipitation_probability_max} precipitation`;
+        weatherDetails3.textContent = `Min: ${weatherData.daily.temperature_2m_max[0]}${weatherData.daily_units.temperature_2m_max}, Max: ${weatherData.daily.temperature_2m_min[0]}${weatherData.daily_units.temperature_2m_min}`;
+        let sunriseTime = weatherData.daily.sunrise.substring(str.indexOf("T"));
+        let sunsetTime = weatherData.daily.sunset.substring(str.indexOf("T"));
+        weatherDetails4.textContent = `Sunrise: ${sunriseTime}, Sunset: ${sunsetTime} (TODO of daylight)`;
       }
     } catch (error) {
       console.error('Error updating weather:', error);
@@ -71,18 +74,25 @@ document.addEventListener('DOMContentLoaded', () => {  // ensure all the DOM con
   }
 
   function toggleWeatherDetails() {
+    console.log("Weather details toggled")
     if (!weatherDetailsShown) {
       weatherDetailsShown = true
       weatherDetails1 = document.createElement("h3");
       weatherDetails2 = document.createElement("h3");
       weatherDetails3 = document.createElement("h3");
       weatherDetails4 = document.createElement("h3");
-      weatherDiv.appendChild(weatherDetails1, weatherDetails2, weatherDetails3, weatherDetails4)
+      weatherDiv.appendChild(weatherDetails1)
+      weatherDiv.appendChild(weatherDetails2)
+      weatherDiv.appendChild(weatherDetails3)
+      weatherDiv.appendChild(weatherDetails4)
     } else {
       weatherDetailsShown = false
-      weatherDiv.removeChild(weatherDetails1, weatherDetails2, weatherDetails3, weatherDetails4)
+      weatherDiv.removeChild(weatherDetails1)
+      weatherDiv.removeChild(weatherDetails2)
+      weatherDiv.removeChild(weatherDetails3)
+      weatherDiv.removeChild(weatherDetails4)
     }
-    updateWeather();
+    updateWeather()
   }
   
   function handleSearch() {
@@ -94,15 +104,19 @@ document.addEventListener('DOMContentLoaded', () => {  // ensure all the DOM con
       switch (selectedEngine) {
         case 'google':
           searchUrl = `https://www.google.com/search?q=${searchTerm}`;
+          searchHint.setAttribute(src, ".assets/google.png");
           break;
         case 'bing':
           searchUrl = `https://www.bing.com/search?q=${searchTerm}`;
+          searchHint.setAttribute(src, ".assets/bing.png");
           break;
         case 'duckduckgo':
           searchUrl = `https://duckduckgo.com/?q=${searchTerm}`;
+          searchHint.setAttribute(src, ".assets/duckduckgo.png");
           break;
         case 'yahoo':
           searchUrl = `https://search.yahoo.com/search?q=${searchTerm}`;
+          searchHint.setAttribute(src, ".assets/yahoo.png");
           break;
         default:
           // Just in case!
@@ -115,7 +129,26 @@ document.addEventListener('DOMContentLoaded', () => {  // ensure all the DOM con
     }
   }
 
-  weatherSummary.onclick = toggleWeatherDetails();
+  function switchHint() {
+    switch (searchEngine.value) {
+      case 'google':
+        searchHint.setAttribute("src", "./assets/google.png");
+        break;
+      case 'bing':
+        searchHint.setAttribute("src", "./assets/bing.png");
+        break;
+      case 'duckduckgo':
+        searchHint.setAttribute("src", "./assets/duckduckgo.png");
+        break;
+      case 'yahoo':
+        searchHint.setAttribute("src", "./assets/yahoo.png");
+        break;
+    }
+  }
+    
+  searchEngine.addEventListener('change', switchHint);
+
+  weatherSummary.addEventListener('click', toggleWeatherDetails);
   
   searchEngine.addEventListener('change', () => {
     // Update UI based on selected engine (optional)
@@ -133,6 +166,7 @@ document.addEventListener('DOMContentLoaded', () => {  // ensure all the DOM con
 
   updateTime();
   updateWeather();
+  switchHint();
 
   // Set detail update intervals
   setInterval(updateTime, 100);  // 0.1 sec

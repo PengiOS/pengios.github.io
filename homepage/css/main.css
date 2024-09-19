@@ -31,6 +31,18 @@ body {
   text-shadow: 2px 2px black;
 }
 
+#weather {
+  font-size: 16px;
+  font-family: "Canva Sans Display";
+  color: white;
+  text-shadow: 2px 2px black;
+  margin-left: 20px;
+}
+
+#weather-summary:hover {
+  cursor: pointer;
+}
+
 .search {
   display: flex;
   justify-content: center;
@@ -46,6 +58,7 @@ body {
   border-radius: 5px;
   font-size: 16px;
   color: black; /* Text color for search bar (optional) */
+  font-family: "Canva Sans Display";
 }
 
 .search-engine {
@@ -56,6 +69,21 @@ body {
   border-radius: 5px;
   font-size: 16px;
   color: black;
+  font-family: "Canva Sans Display";
+}
+
+#search-engine-preview {
+  height: 40px;
+  width: 40px;
+  margin: 7.5px;
+  border: 1px solid #ccc;
+  background-color: white;
+  border-radius: 5px;
+  background-color: #e9e9ed;
+}
+
+#search-engine-preview img {
+  transform: translate(50%, 50%);
 }
 
 .search-engine option {
@@ -103,6 +131,9 @@ body {
   height: 30px;
   width: 30px;
 }
+
+
+/* font-faces */
 
 @font-face {
   font-family: "Canva Sans";
