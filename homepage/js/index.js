@@ -61,12 +61,18 @@ document.addEventListener('DOMContentLoaded', () => {  // ensure all the DOM con
       console.log(weatherData);
       weatherSummary.textContent = `${weatherData.current.temperature_2m}${weatherData.current_units.temperature_2m}`;  // TODO: location and relevant icon before temp
       if (weatherDetailsShown) {
+        let sunriseString = weatherData.daily.sunrise[0];
+        let sunsetString = weatherData.daily.sunset[0];
+        let sunriseTime = sunriseString.substring(sunriseString.indexOf("T") + 1);
+        let sunsetTime = sunsetString.substring(sunsetString.indexOf("T") + 1);
+        let daylightSeconds = weatherData.daily.daylight_duration[0]
+        let h = Math.floor(daylightSeconds / 3600);
+        let m = Math.round(daylightSeconds % 3600 / 60);
+        let daylightDisplay = `${h}hr ${m}min`
         weatherDetails1.textContent = `Feels like ${weatherData.current.apparent_temperature}${weatherData.current_units.apparent_temperature}`;
         weatherDetails2.textContent = `${weatherData.daily.precipitation_probability_max[0]}${weatherData.daily_units.precipitation_probability_max} precipitation`;
         weatherDetails3.textContent = `Min: ${weatherData.daily.temperature_2m_max[0]}${weatherData.daily_units.temperature_2m_max}, Max: ${weatherData.daily.temperature_2m_min[0]}${weatherData.daily_units.temperature_2m_min}`;
-        let sunriseTime = weatherData.daily.sunrise.substring(str.indexOf("T"));
-        let sunsetTime = weatherData.daily.sunset.substring(str.indexOf("T"));
-        weatherDetails4.textContent = `Sunrise: ${sunriseTime}, Sunset: ${sunsetTime} (TODO of daylight)`;
+        weatherDetails4.textContent = `Sunrise: ${sunriseTime}, Sunset: ${sunsetTime} (${daylightDisplay} of daylight)`;
       }
     } catch (error) {
       console.error('Error updating weather:', error);
