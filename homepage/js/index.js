@@ -110,19 +110,15 @@ document.addEventListener('DOMContentLoaded', () => {  // ensure all the DOM con
       switch (selectedEngine) {
         case 'google':
           searchUrl = `https://www.google.com/search?q=${searchTerm}`;
-          searchHint.setAttribute(src, ".assets/google.png");
           break;
         case 'bing':
           searchUrl = `https://www.bing.com/search?q=${searchTerm}`;
-          searchHint.setAttribute(src, ".assets/bing.png");
           break;
         case 'duckduckgo':
           searchUrl = `https://duckduckgo.com/?q=${searchTerm}`;
-          searchHint.setAttribute(src, ".assets/duckduckgo.png");
           break;
         case 'yahoo':
           searchUrl = `https://search.yahoo.com/search?q=${searchTerm}`;
-          searchHint.setAttribute(src, ".assets/yahoo.png");
           break;
         default:
           // Just in case!
