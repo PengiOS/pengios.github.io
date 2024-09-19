@@ -37,6 +37,9 @@ body {
   color: white;
   text-shadow: 2px 2px black;
   margin-left: 20px;
+  position: absolute;
+  bottom: 15px;
+  left: 0px;
 }
 
 #weather-summary:hover {
