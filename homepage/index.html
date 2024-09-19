@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -10,8 +10,7 @@
 <body>
   <header class="header">
     <img class="logo" src="./assets/logo.png" alt="Logo">
-    <h2 id="weather"></h2>
-    <iframe src="https://free.timeanddate.com/clock/i9fw84dq/n240/tlau/fn6/fs30/fcfff/tct/pct/ahr/th2/ts1/ta1" frameborder="0" width="287" height="39" allowtransparency="true"></iframe>
+    <iframe id="clockiframe" src="https://free.timeanddate.com/clock/i9fw84dq/n240/tlau/fn6/fs30/fcfff/tct/pct/ahr/th2/ts1/ta1" frameborder="0" width="287" height="39" allowtransparency="true"></iframe>
   </header>
   <div class="greeting" id="greeting">
   </div>
@@ -26,6 +25,9 @@
     <button class="search-button" id="search-button">
       <img src="./assets/search.png" alt="Search">
     </button>
+  </div>
+  <div id="weather">
+    <h2 id="weather-summary"></h2>
   </div>
   <script src="./js/index.js"></script>
 </body>

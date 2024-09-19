@@ -1,13 +1,23 @@
 document.addEventListener('DOMContentLoaded', () => {  // ensure all the DOM content is loaded first!
+  const openMeteoURL = "https://api.open-meteo.com/v1/forecast?latitude=-33.8678&longitude=151.2073&current=temperature_2m,apparent_temperature,is_day&daily=temperature_2m_max,temperature_2m_min,sunrise,sunset,daylight_duration,precipitation_probability_max&timezone=auto&forecast_days=3"
   const greeting = document.getElementById('greeting');
   const clock = document.getElementById('clock');
   const searchBar = document.getElementById('search-bar');
   const searchEngine = document.getElementById('search-engine');
   const searchButton = document.getElementById('search-button');
+  const weatherSummary = document.getElementById('weather-summary')
+  const weatherDiv = document.getElementById('weather')
+  var weatherDetailsShown = false;
   
+  var weatherDetails1;
+  var weatherDetails2;
+  var weatherDetails3;
+  var weatherDetails4;
+
   function updateTime() {
     const date = new Date();
     const hours = date.getHours();
+    var greetingText;
       
     if (hours >= 0 && hours < 3) {
       greetingText = 'Sleep well';
@@ -29,20 +39,50 @@ document.addEventListener('DOMContentLoaded', () => {  // ensure all the DOM con
     greeting.textContent = greetingText;
   }
 
-  function updateWeather() {
-    fetch('https://api.open-meteo.com/v1/forecast?latitude=-33.8678&longitude=151.2073&current=temperature_2m,apparent_temperature,is_day,precipitation&daily=temperature_2m_max,temperature_2m_min,sunrise,sunset,daylight_duration&timezone=auto')
-      .then(response => {
-        if (!response.ok) {
-            throw new Error('Network response error');  
-        }
-        return response.json();
-     })
-      .then(data => {
-        console.log(data);
-    })
-    .catch(error => {
-        console.error('Error fetching weather from API:', error);
-    });
+  async function getWeather() {
+    response = await fetch(openMeteoURL)
+    try {
+      if (!response.ok) {
+        throw new Error('Network response error');
+      }
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error('Error fetching weather from API:', error);
+      throw error;
+    }
+  }
+
+  async function updateWeather() {
+    try {
+      var weatherData = await getWeather();
+      console.log(weatherData);
+      weatherSummary.textContent = "sunny or sht";
+      if (weatherDetailsShown) {
+        weatherDetails1.textContent = "Feels like hell"
+        weatherDetails2.textContent = "150% precipitation"
+        weatherDetails3.textContent = "Min: brrr, Max: ouch"
+        weatherDetails4.textContent = "Sunrise: idk, Sunset: idk (12:01 of daylight)"
+        // these are placeholders for obvious reasons
+      }
+    } catch (error) {
+      console.error('Error updating weather:', error);
+    }
+  }
+
+  function toggleWeatherDetails() {
+    if (!weatherDetailsShown) {
+      weatherDetailsShown = true
+      weatherDetails1 = document.createElement("h3");
+      weatherDetails2 = document.createElement("h3");
+      weatherDetails3 = document.createElement("h3");
+      weatherDetails4 = document.createElement("h3");
+      weatherDiv.appendChild(weatherDetails1, weatherDetails2, weatherDetails3, weatherDetails4)
+    } else {
+      weatherDetailsShown = false
+      weatherDiv.removeChild(weatherDetails1, weatherDetails2, weatherDetails3, weatherDetails4)
+    }
+    updateWeather();
   }
   
   function handleSearch() {
@@ -65,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {  // ensure all the DOM con
           searchUrl = `https://search.yahoo.com/search?q=${searchTerm}`;
           break;
         default:
-          // Handle case where no engine is selected (optional)
+          // Just in case!
           alert('Please select a search engine.');
       }
   
@@ -74,6 +114,8 @@ document.addEventListener('DOMContentLoaded', () => {  // ensure all the DOM con
       }
     }
   }
+
+  weatherSummary.onclick = toggleWeatherDetails();
   
   searchEngine.addEventListener('change', () => {
     // Update UI based on selected engine (optional)
