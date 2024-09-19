@@ -134,16 +134,16 @@ document.addEventListener('DOMContentLoaded', () => {  // ensure all the DOM con
   function switchHint() {
     switch (searchEngine.value) {
       case 'google':
-        searchHint.setAttribute("src", "./assets/google.png");
+        searchHint.setAttribute("src", "/homepage/assets/google.png");
         break;
       case 'bing':
-        searchHint.setAttribute("src", "./assets/bing.png");
+        searchHint.setAttribute("src", "/homepage/assets/bing.png");
         break;
       case 'duckduckgo':
-        searchHint.setAttribute("src", "./assets/duckduckgo.png");
+        searchHint.setAttribute("src", "/homepage/assets/duckduckgo.png");
         break;
       case 'yahoo':
-        searchHint.setAttribute("src", "./assets/yahoo.png");
+        searchHint.setAttribute("src", "/homepage/assets/yahoo.png");
         break;
     }
   }
