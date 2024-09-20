@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {  // ensure all the DOM con
   function updateTime() {
     const date = new Date();
     const hours = date.getHours();
+    const minutes = date.getMinutes();
     var greetingText;
       
     if (hours >= 0 && hours < 3) {
