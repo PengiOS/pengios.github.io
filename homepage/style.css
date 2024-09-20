@@ -26,6 +26,10 @@ body {
   font-family: "Canva Sans Display";
 }
 
+#clock {
+  align-self: center;
+}
+
 .greeting {
   font-size: 36px;
   margin-top: 20%;

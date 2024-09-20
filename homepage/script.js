@@ -200,8 +200,6 @@ document.addEventListener('DOMContentLoaded', () => {  // ensure all the DOM con
     }
   });
   
-  updateTime();
-
   searchButton.addEventListener('click', handleSearch);
 
   updateTime();
