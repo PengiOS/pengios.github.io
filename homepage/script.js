@@ -4,23 +4,26 @@ document.addEventListener('DOMContentLoaded', () => {  // ensure all the DOM con
   const windSpeed = "km/h"
   const inches = false
   var openMeteoURL;
+  const weekDays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];  // unfortunately must start on Sunday
+  const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
   if (farenheit) {
     openMeteoURL = weatherBaseURL + "&temperature_unit=fahrenheit";
   } else {
     openMeteoURL = weatherBaseURL;
   }
   if (windSpeed == "m/s") {
-    openMeteoURL += "&wind_speed_unit=ms"
+    openMeteoURL += "&wind_speed_unit=ms";
   } else if (windSpeed == "mph") {
-    openMeteoURL += "&wind_speed_unit=mph"
+    openMeteoURL += "&wind_speed_unit=mph";
   } else if (windSpeed == "knots") {
-    openMeteoURL += "&wind_speed_unit=kn"
+    openMeteoURL += "&wind_speed_unit=kn";
   }
   if (inches) {
-    openMeteoURL += "&precipitation_unit=inch"
+    openMeteoURL += "&precipitation_unit=inch";
   }
   const greeting = document.getElementById('greeting');
   const clock = document.getElementById('clock');
+  const dateHeader = document.getElementById('date');
   const searchBar = document.getElementById('search-bar');
   const searchEngine = document.getElementById('search-engine');
   const searchHint = document.getElementById('search-hint');
@@ -71,6 +74,13 @@ document.addEventListener('DOMContentLoaded', () => {  // ensure all the DOM con
       greetingText = 'Hello'
     }
     greeting.textContent = greetingText;
+  }
+
+  function updateDate() {
+    let date = new Date();
+    weekDay = weekDays[date.getDay()];
+    month = months[date.getMonth()];
+    dateHeader.textContent = `${weekDay} ${date.getDate()} ${month}`;
   }
 
   async function getWeather() {
@@ -195,10 +205,12 @@ document.addEventListener('DOMContentLoaded', () => {  // ensure all the DOM con
   searchButton.addEventListener('click', handleSearch);
 
   updateTime();
+  updateDate();
   updateWeather();
   switchHint();
 
   // Set detail update intervals
   setInterval(updateTime, 100);  // 0.1 sec
   setInterval(updateWeather, 60000);  // 1 min
+  setInterval(updateDate, 3000);  // 3 sec
 });
