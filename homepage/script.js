@@ -1,5 +1,24 @@
 document.addEventListener('DOMContentLoaded', () => {  // ensure all the DOM content is loaded first!
-  const openMeteoURL = "https://api.open-meteo.com/v1/forecast?latitude=-33.8678&longitude=151.2073&current=temperature_2m,apparent_temperature,is_day&daily=temperature_2m_max,temperature_2m_min,sunrise,sunset,daylight_duration,precipitation_probability_max&timezone=auto&forecast_days=3"
+  const weatherBaseURL = "https://api.open-meteo.com/v1/forecast?latitude=-33.8678&longitude=151.2073&current=temperature_2m,apparent_temperature,is_day,relative_humidity_2m&daily=temperature_2m_max,temperature_2m_min,sunrise,sunset,daylight_duration,precipitation_probability_max&timezone=auto&forecast_days=1"
+  const farenheit = false;
+  const windSpeed = "km/h"
+  const inches = false
+  var openMeteoURL;
+  if (farenheit) {
+    openMeteoURL = weatherBaseURL + "&temperature_unit=fahrenheit";
+  } else {
+    openMeteoURL = weatherBaseURL;
+  }
+  if (windSpeed == "m/s") {
+    openMeteoURL += "&wind_speed_unit=ms"
+  } else if (windSpeed == "mph") {
+    openMeteoURL += "&wind_speed_unit=mph"
+  } else if (windSpeed == "knots") {
+    openMeteoURL += "&wind_speed_unit=kn"
+  }
+  if (inches) {
+    openMeteoURL += "&precipitation_unit=inch"
+  }
   const greeting = document.getElementById('greeting');
   const clock = document.getElementById('clock');
   const searchBar = document.getElementById('search-bar');
@@ -152,10 +171,6 @@ document.addEventListener('DOMContentLoaded', () => {  // ensure all the DOM con
   searchEngine.addEventListener('change', switchHint);
 
   weatherSummary.addEventListener('click', toggleWeatherDetails);
-  
-  searchEngine.addEventListener('change', () => {
-    // Update UI based on selected engine (optional)
-  });
   
   searchBar.addEventListener('keypress', (event) => {
     if (event.key === 'Enter') {
