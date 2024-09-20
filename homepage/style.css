@@ -12,6 +12,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
+  height: 40px;
   background-color: rgba(0, 0, 0, 0.5); /* Black with 0.5 opacity (background for header) */
 }
 
@@ -19,8 +20,10 @@ body {
   width: 100px;
 }
 
-.clock {
+#clock {
   font-size: 24px;
+  color: white;
+  font-family: "Canva Sans Display";
 }
 
 .greeting {
@@ -94,34 +97,6 @@ body {
   padding: 20px 20px;
   width: fit-content;
   height: fit-content;
-}
-
-.search-engine option[value="google"] {
-  background-image: url('./assets/google.png'); /* Adjust path to Google logo */
-  background-repeat: no-repeat;
-  background-position: left center;
-  padding-left: 25px;
-}
-
-.search-engine option[value="bing"] {
-  background-image: url('./assets/bing.png'); /* Adjust path to Bing logo */
-  background-repeat: no-repeat;
-  background-position: left center;
-  padding-left: 25px;
-}
-
-.search-engine option[value="duckduckgo"] {
-  background-image: url('./assets/duckduckgo.png'); /* Adjust path to DuckDuckGo logo */
-  background-repeat: no-repeat;
-  background-position: left center;
-  padding-left: 25px;
-}
-
-.search-engine option[value="yahoo"] {
-  background-image: url('./assets/yahoo.png'); /* Adjust path to Yahoo! logo */
-  background-repeat: no-repeat;
-  background-position: left center;
-  padding-left: 25px;
 }
 
 .search-button {
