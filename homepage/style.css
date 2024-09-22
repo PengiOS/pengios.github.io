@@ -49,6 +49,21 @@ body {
   left: 0px;
 }
 
+#weather-icon {
+  display: inline-block;
+  fill: white;
+  width: 20px;
+  height: 20px;
+  filter: drop-shadow(2px 2px black);
+  margin-bottom: 0px;
+}
+
+#weather-summary {
+  display: inline-block;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
 #weather-summary:hover {
   cursor: pointer;
 }
