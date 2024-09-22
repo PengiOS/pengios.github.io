@@ -153,7 +153,7 @@ document.addEventListener('DOMContentLoaded', () => {  // ensure all the DOM con
         let daylightDisplay = `${h}hr ${m}min`
 
         weatherDetails1.textContent = `Feels like ${weatherData.current.apparent_temperature}${weatherData.current_units.apparent_temperature}`;
-        weatherDetails2.textContent = `${weatherData.daily.precipitation_probability_max[0]}${weatherData.daily_units.precipitation_probability_max} precipitation`;
+        weatherDetails2.textContent = `${weatherData.daily.precipitation_probability_max[0]}${weatherData.daily_units.precipitation_probability_max} precipitation, ${weatherData.current.relative_humidity_2m}${weatherData.current_units.relative_humidity_2m} humidity`;
         weatherDetails3.textContent = `Min: ${weatherData.daily.temperature_2m_max[0]}${weatherData.daily_units.temperature_2m_max}, Max: ${weatherData.daily.temperature_2m_min[0]}${weatherData.daily_units.temperature_2m_min}`;
         weatherDetails4.textContent = `Sunrise: ${sunriseTime}, Sunset: ${sunsetTime} (${daylightDisplay} of daylight)`;
       }
