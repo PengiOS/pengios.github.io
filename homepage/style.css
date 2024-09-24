@@ -1,10 +1,10 @@
 body {
-  background-image: url('/homepage/assets/background.png'); /* Adjust path to your image */
+  background-image: url('/homepage/assets/background.png');
   background-size: cover;
   margin: 0;
   padding: 0;
   font-family: "Canva Sans Display";
-  color: black; /* White text to match background */
+  color: black;
 }
 
 .header {
@@ -13,7 +13,7 @@ body {
   align-items: center;
   padding: 10px 20px;
   height: 40px;
-  background-color: rgba(0, 0, 0, 0.5); /* Black with 0.5 opacity (background for header) */
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .logo {
