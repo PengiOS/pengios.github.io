@@ -207,10 +207,13 @@ import Layout from "../layouts/Main.astro";
     } else {
       openMeteoURL = weatherBaseURL;
     }
+    // @ts-expect-error
     if (windSpeed == "m/s") {
       openMeteoURL += "&wind_speed_unit=ms";
+      // @ts-expect-error
     } else if (windSpeed == "mph") {
       openMeteoURL += "&wind_speed_unit=mph";
+      // @ts-expect-error
     } else if (windSpeed == "knots") {
       openMeteoURL += "&wind_speed_unit=kn";
     }
