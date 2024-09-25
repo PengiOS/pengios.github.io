@@ -1,16 +1,54 @@
 ---
-
+import Layout from "../layouts/Main.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout
+  title="New Tab - PengiOS"
+  description="This is the homepage for PengiOS. Search on DuckDuckGo, Google and more, see weather and the time, and keep track of your day on our dashboard."
+>
+  <header class="header">
+    <img class="logo" src="/logo.png" alt="PengiOS Logo" />
+    <p id="clock"></p>
+    <p id="date"></p>
+  </header>
+  <div class="greeting" id="greeting"></div>
+  <div class="search">
+    <select class="search-engine" id="search-engine">
+      <option value="google">Google</option>
+      <option value="bing">Bing</option>
+      <option value="duckduckgo">DuckDuckGo</option>
+      <option value="yahoo">Yahoo!</option>
+    </select>
+    <div id="search-engine-preview">
+      <img
+        id="search-hint"
+        style="height: 20px; width: 20px;"
+        src="/homepage/google.png"
+      />
+    </div>
+    <input
+      type="text"
+      class="search-bar"
+      id="search-bar"
+      placeholder="Type to search"
+    />
+    <button class="search-button" id="search-button">
+      <img src="/homepage/search.png" alt="Search" />
+    </button>
+  </div>
+  <div id="weather">
+    <span>
+      <img id="weather-icon" />
+      <h2 id="weather-summary" title="Toggle more weather details"></h2>
+    </span>
+  </div>
+</Layout>
+
+<style>
+/* placeholder */
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+  });
+</script>
