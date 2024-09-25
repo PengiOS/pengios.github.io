@@ -1,4 +1,3 @@
 {
-  "extends": "astro/tsconfigs/strict",
-  "strictNullChecks": false
+  "extends": "astro/tsconfigs/strict"
 }
