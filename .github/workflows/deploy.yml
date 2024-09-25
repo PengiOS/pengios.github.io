@@ -1,4 +1,4 @@
-name: Auto-deploy to Surge [sigmism.surge.sh]
+name: Auto-deploy to Surge [pengios.github.io]
 
 on:
   push:
@@ -39,7 +39,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3.0.1
         with:
           # Upload entire repository
-          path: "."
+          path: "./dist"
 
       - name: Deploy to GitHub Pages
         id: deployment
