@@ -1,4 +1,4 @@
-name: Auto-deploy to Surge [pengios.github.io]
+name: Deploy Website [pengios.github.io]
 
 on:
   push:
