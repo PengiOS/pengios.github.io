@@ -1,0 +1,151 @@
+body {
+  background-image: url('/homepage/assets/background.png'); /* Adjust path to your image */
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+  font-family: "Canva Sans Display";
+  color: black; /* White text to match background */
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  height: 40px;
+  background-color: rgba(0, 0, 0, 0.5); /* Black with 0.5 opacity (background for header) */
+}
+
+.logo {
+  width: 100px;
+}
+
+#clock, #date {
+  font-size: 24px;
+  color: white;
+  font-family: "Canva Sans Display";
+}
+
+#clock {
+  align-self: center;
+}
+
+.greeting {
+  font-size: 36px;
+  margin-top: 20%;
+  text-align: center;
+  color: white;
+  text-shadow: 2px 2px black;
+}
+
+#weather {
+  font-size: 16px;
+  font-family: "Canva Sans Display";
+  color: white;
+  text-shadow: 2px 2px black;
+  margin-left: 20px;
+  position: absolute;
+  bottom: 15px;
+  left: 0px;
+}
+
+#weather-icon {
+  display: inline-block;
+  fill: white;
+  width: 20px;
+  height: 20px;
+  filter: drop-shadow(2px 2px black);
+  margin-bottom: 0px;
+}
+
+#weather-summary {
+  display: inline-block;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+#weather-summary:hover {
+  cursor: pointer;
+}
+
+.search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.search-bar {
+  width: 200px;
+  height: 30px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  color: black; /* Text color for search bar (optional) */
+  font-family: "Canva Sans Display";
+}
+
+.search-engine {
+  margin-right: 10px;
+  height: 40px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  color: black;
+  font-family: "Canva Sans Display";
+}
+
+#search-engine-preview {
+  height: 40px;
+  width: 40px;
+  margin: 7.5px;
+  border: 1px solid #ccc;
+  background-color: white;
+  border-radius: 5px;
+  background-color: #e9e9ed;
+}
+
+#search-engine-preview img {
+  transform: translate(50%, 50%);
+}
+
+.search-engine option {
+  text-align: center;
+  padding: 20px 20px;
+  width: fit-content;
+  height: fit-content;
+}
+
+.search-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.search-button img {
+  height: 30px;
+  width: 30px;
+}
+
+
+/* font-faces */
+
+@font-face {
+  font-family: "Canva Sans";
+  src: local('Canva Sans'), local('Canva-Sans'),
+      url('../../fonts/Canva Sans/CanvaSans-Regular.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Canva Sans Display";
+  src: local('Canva Sans Display'), local('Canva-Sans Display'),
+      url('../../fonts/Canva Sans Display/CanvaSansDisplay-Regular.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
