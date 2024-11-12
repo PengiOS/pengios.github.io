@@ -24,11 +24,6 @@ jobs:
       - name: Setup node (v4)
         uses: actions/setup-node@v4
 
-      - name: Install packages
-        run: |
-          npm ci || npm i
-          npm install -g surge
-
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
