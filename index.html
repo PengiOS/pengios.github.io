@@ -1,17 +1,64 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Pengi OS</title>
-  <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="fonts/Canva Sans/CanvaSans-Regular.otf">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pengi OS</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="hero">
-    <img src="assets/top.svg" alt="Background Image">
-    <h1>Welcome to Pengi OS</h1>
-  </div>
+    <nav class="navbar">
+        <ul class="nav-links left-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#wiki">Wiki</a></li>
+        </ul>
+        <a href="#home" class="logo">Pengi OS</a>
+        <ul class="nav-links right-links">
+            <li><a href="#forums">Forums</a></li>
+            <li><a href="#status">Status Page</a></li>
+        </ul>
+    </nav>
 
-  <div class="scroll-section">
-    </div>
+    <header id="home" class="header reveal">
+        <h1>Welcome to Pengi OS</h1>
+        <p>The Linux-Based Operating System for Everyone</p>
+        <a href="#download" class="button">Download Now</a>
+    </header>
+
+    <section id="editions" class="editions reveal">
+        <h2>Choose Your Edition</h2>
+        <div class="edition-columns">
+            <div class="edition beginner">
+                <h3>PengiOS Beginner</h3>
+                <p>Based on Debian, PengiOS Beginner is designed for ease of use, stability, and accessibility for new Linux users.</p>
+                <ul>
+                    <li>User-friendly interface</li>
+                    <li>Great for everyday use</li>
+                    <li>Debian-based stability</li>
+                </ul>
+            </div>
+            <div class="edition pro">
+                <h3>PengiOS Pro</h3>
+                <p>For advanced users, PengiOS Pro is based on Arch, offering flexibility, speed, and customization options for power users.</p>
+                <ul>
+                    <li>Highly customizable</li>
+                    <li>Access to the latest software</li>
+                    <li>Arch-based power and control</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="download" class="download reveal">
+        <h2>Get Pengi OS</h2>
+        <p>Ready to try Pengi OS? Click below to start your download and experience the power of Linux.</p>
+        <a href="#" class="button">Download Pengi OS</a>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2023 Pengi OS. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
