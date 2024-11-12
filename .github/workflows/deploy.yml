@@ -1,16 +1,43 @@
-name: Deploy GitHub Pages site
-  uses: actions/deploy-pages@v4.0.5
-  with:
-    # GitHub token
-    token: ${{ github.token }}
-    # Time in milliseconds after which to timeout and cancel the deployment (default: 10 minutes)
-    timeout: 600000
-    # Maximum number of status report errors before cancelling a deployment (default: 10)
-    error_count: 10
-    # Time in milliseconds between two deployment status report (default: 5 seconds)
-    reporting_interval: 5000
-    # Name of the artifact to deploy
-    artifact_name: github-pages
-    # Is this attempting to deploy a pull request as a GitHub Pages preview site? (NOTE: This feature is only in alpha currently and is not available to the public!)
-    preview: false
-          
+name: Auto-deploy to Surge [pengios.github.io]
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Auto-deploy to GH Pages [pengios.github.io]
+
+    steps:
+      - name: Checkout (v4)
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Setup node (v4)
+        uses: actions/setup-node@v4
+
+      - name: Install packages
+        run: |
+          npm ci || npm i
+          npm install -g surge
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3.0.1
+        with:
+          # Upload entire repository
+          path: "./dist"
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
