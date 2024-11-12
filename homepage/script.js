@@ -185,7 +185,7 @@ document.addEventListener('DOMContentLoaded', () => {  // ensure all the DOM con
   }
   
   function handleSearch() {
-    const searchTerm = searchBar.value;
+    const searchTerm = encodeURIComponent(searchBar.value);
     const selectedEngine = searchEngine.value;
     let searchUrl;
   
